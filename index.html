@@ -44,42 +44,47 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Hero: asegurar altura mínima y control de capas */
+        /* HERO: asegurar altura, centrado y legibilidad */
         .hero-bg {
-            position: relative; /* para que los absolute internos se posicionen respecto a la sección */
-            min-height: 40vh;   /* evita que el héroe se comprima; ajusta a 320px si prefieres */
-            overflow: hidden;
-            background-color: #7f1146;
-            background-image: url('https://raw.githubusercontent.com/aenoc77/bildy-AE/main/Logo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: normal; /* usar normal para que la overlay controle la oscuridad */
-            display: flex;
-            align-items: center; /* centra verticalmente el contenido si se necesita */
+          position: relative;
+          min-height: 40vh;        /* evita colapso; cámbialo a 320px si prefieres fijo */
+          display: flex;           /* centra verticalmente el contenido */
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          background-color: #7f1146;
+          background-image: url('logo1.jpg'); /* usa el archivo que subiste */
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-blend-mode: normal; /* overlay controla la oscuridad */
         }
 
+        /* overlay semitransparente, suficiente para contraste sin ocultar el fondo */
         .hero-bg .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background-color: rgba(0,0,0,0.45); /* overlay con opacidad neutral para mejor contraste */
-            z-index: 0;
+          position: absolute;
+          inset: 0;
+          background-color: rgba(0,0,0,0.55); /* aumenta si necesitas más contraste */
+          z-index: 0;
         }
 
+        /* contenido del héroe por encima del overlay */
         .hero-bg .hero-content {
-            position: relative;
-            z-index: 20; /* asegurar que el contenido esté por encima del overlay */
-            width: 100%;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            color: #ffffff;
+          position: relative;
+          z-index: 20;
+          width: 100%;
+          max-width: 960px;
+          padding: 2rem 1rem;
+          text-align: center;
+          color: #fff; 
         }
 
+        /* sombras de texto para mejorar legibilidad sobre imágenes */
         .hero-bg .hero-content h1 {
-            text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+          text-shadow: 0 6px 18px rgba(0,0,0,0.6);
         }
-
         .hero-bg .hero-content p {
-            text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+          text-shadow: 0 4px 12px rgba(0,0,0,0.45);
         }
 
         /* Regla específica para el logo del header (si la quieres más tarde) */
@@ -91,11 +96,11 @@
             max-width: none; /* evita que una regla global img { max-width:100% } lo escale */
         }
 
-        /* Pequeña mejora responsiva: reducir padding vertical en pantallas pequeñas */
+        /* responsive: reduce altura y tamaño en móviles */
         @media (max-width: 640px) {
-            .hero-bg { min-height: 34vh; }
-            .hero-bg .hero-content { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-            .hero-bg .hero-content h1 { font-size: 2rem; }
+          .hero-bg { min-height: 34vh; }
+          .hero-bg .hero-content { padding: 1.25rem; }
+          .hero-bg .hero-content h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -116,7 +121,7 @@
 
     <!-- Sección principal / Héroe -->
     <section class="hero-bg text-white py-24 px-4 sm:px-6 lg:px-8" aria-label="Sección objetivo">
-        <div class="hero-overlay" aria-hidden="true"></div> <!-- Capa superpuesta para asegurar el contraste -->
+        <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content max-w-4xl mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 drop-shadow-md">
                 Objetivo
@@ -217,7 +222,7 @@
             </a>
 
             <!-- Tarjeta 6: Creador de Contenido -->
-            <a href="https://chatbot.getmindpal.com/bildy-creador-de-contenido-yj9" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hid[...]
+            <a href="https://chatbot.getmindpal.com/bildy-creador-de-contenido-yj9" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hid[...]">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xU3THZsF8rP42g_MGtLdHaXn_-3X9XavzsE1zZOCzoSMz-5Vur8ziD29GGD_PbuQmnFu4lSHVliiIBdN8bAPjEn3RvARNagmYH9UuLBzcxpmGxd_rf28[...]" alt="">
                 </div>
