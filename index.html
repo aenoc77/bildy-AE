@@ -105,6 +105,16 @@
           .hero-bg .hero-content { padding: 1.25rem; }
           .hero-bg .hero-content h1 { font-size: 2rem; }
         }
+        /* Estilos para el panel embebido */
+#embed-panel.hidden { display: none; }
+#embed-panel { display: block; } /* la clase hidden controlará la visibilidad */
+#embed-iframe { width: 100%; height: 100%; border: 0; }
+
+/* Si necesitas una altura precisa según el header: */
+@media (min-width: 0) {
+  /* Header = h-16 (64px). Ajusta si tu header es distinto. */
+  #embed-panel { top: 64px; height: calc(100vh - 64px); }
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen font-sans">
@@ -120,6 +130,15 @@
                 </div>
             </div>
         </div>
+        <!-- PANEL EMBEBIDO: se muestra al clicar una tarjeta y mantiene el header -->
+<div id="embed-panel" class="hidden fixed inset-x-0 top-16 z-40 bg-white/90 backdrop-blur-sm" aria-hidden="true" style="height: calc(100vh - 64px);">
+  <div class="relative h-full">
+    <button id="embed-close" aria-label="Cerrar" class="absolute right-4 top-4 z-50 bg-white rounded-full p-2 shadow">
+      ✕
+    </button>
+    <iframe id="embed-iframe" src="" frameborder="0" class="w-full h-full" title="Contenido embebido"></iframe>
+  </div>
+</div>
     </header>
 
     <!-- Sección principal / Héroe -->
@@ -145,7 +164,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- Tarjeta 1: Creador de Webinars -->
-            <a href="https://chatbot.getmindpal.com/creador-de-webinars-venta-copy-X2DybZ9qXFsR0Csi" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-[...]">
+            <a href="https://chatbot.getmindpal.com/creador-de-webinars-venta-copy-X2DybZ9qXFsR0Csi" data-embed="true" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-[...]">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="1.png" alt="">
                 </div>
@@ -161,7 +180,7 @@
             </a>
 
             <!-- Tarjeta 2: Creador de Ofertas -->
-            <a href="https://chatbot.getmindpal.com/bildy-creador-de-ofertas-o91" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidde[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-creador-de-ofertas-o91" data-embed="true" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidde[...]">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="2.png" alt="">
                 </div>
@@ -177,7 +196,7 @@
             </a>
 
             <!-- Tarjeta 3: Cartas de Venta -->
-            <a href="https://chatbot.getmindpal.com/bildly-cartas-de-venta-g2n" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidden [...]">
+            <a href="https://chatbot.getmindpal.com/bildly-cartas-de-venta-g2n" data-embed="true" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidden [...]">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="3.png" alt="">
                 </div>
@@ -193,7 +212,7 @@
             </a>
 
             <!-- Tarjeta 4: Asistente de La Máquina del SÍ -->
-            <a href="https://chatbot.getmindpal.com/bildy-de-la-m-quina-del-s-3cg" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidd[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-de-la-m-quina-del-s-3cg" data-embed="true" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidd[...]">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="4.png" alt="">
                 </div>
@@ -209,7 +228,7 @@
             </a>
 
             <!-- Tarjeta 5: Creador de Producto -->
-            <a href="https://chatbot.getmindpal.com/bildy-creador-de-producto-vgn" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidd[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-creador-de-producto-vgn" data-embed="true" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidd[...]">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="5.png" alt="">
                 </div>
@@ -225,7 +244,7 @@
             </a>
 
             <!-- Tarjeta 6: Creador de Contenido -->
-            <a href="https://chatbot.getmindpal.com/bildy-creador-de-contenido-yj9" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hid[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-creador-de-contenido-yj9" data-embed="true" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hid[...]">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="6.png" alt="">
                 </div>
@@ -254,6 +273,54 @@
             </div>
         </div>
     </footer>
+<script>
+  (function () {
+    const panel = document.getElementById('embed-panel');
+    const iframe = document.getElementById('embed-iframe');
+    const closeBtn = document.getElementById('embed-close');
 
+    // Abre la URL dentro del iframe y muestra el panel
+    function openEmbed(url) {
+      iframe.src = url;
+      panel.classList.remove('hidden');
+      panel.setAttribute('aria-hidden', 'false');
+      // opcional: desplazar la vista al panel
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Cierra el panel y limpia el iframe (para detener carga)
+    function closeEmbed() {
+      panel.classList.add('hidden');
+      panel.setAttribute('aria-hidden', 'true');
+      // limpiar src para detener el contenido
+      iframe.src = '';
+    }
+
+    // Intercepta clicks en enlaces marcados data-embed="true"
+    document.addEventListener('click', function (e) {
+      const a = e.target.closest('a[data-embed="true"]');
+      if (!a) return;
+      // evitar comportamiento por defecto
+      e.preventDefault();
+      const url = a.getAttribute('href');
+      if (!url) return;
+      openEmbed(url);
+    });
+
+    closeBtn.addEventListener('click', closeEmbed);
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.classList.contains('hidden')) {
+        closeEmbed();
+      }
+    });
+
+    // Si quieres que el panel se cierre al hacer click fuera del iframe:
+    panel.addEventListener('click', function (e) {
+      if (e.target === panel) closeEmbed();
+    });
+  })();
+</script>
 </body>
 </html>
