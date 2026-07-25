@@ -53,19 +53,33 @@
             background-image: url('https://raw.githubusercontent.com/aenoc77/bildy-AE/main/Logo.jpg');
             background-size: cover;
             background-position: center;
-            background-blend-mode: multiply; /* Oscurece la imagen para que el texto sea legible */
+            background-blend-mode: normal; /* usar normal para que la overlay controle la oscuridad */
+            display: flex;
+            align-items: center; /* centra verticalmente el contenido si se necesita */
         }
 
         .hero-bg .hero-overlay {
             position: absolute;
             inset: 0;
-            background-color: rgba(127,17,70,0.6); /* overlay con opacidad */
+            background-color: rgba(0,0,0,0.45); /* overlay con opacidad neutral para mejor contraste */
             z-index: 0;
         }
 
         .hero-bg .hero-content {
             position: relative;
-            z-index: 10; /* asegurar que el contenido esté por encima del overlay */
+            z-index: 20; /* asegurar que el contenido esté por encima del overlay */
+            width: 100%;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .hero-bg .hero-content h1 {
+            text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+        }
+
+        .hero-bg .hero-content p {
+            text-shadow: 0 4px 12px rgba(0,0,0,0.45);
         }
 
         /* Regla específica para el logo del header (si la quieres más tarde) */
@@ -75,6 +89,13 @@
             object-fit: cover;
             display: block;
             max-width: none; /* evita que una regla global img { max-width:100% } lo escale */
+        }
+
+        /* Pequeña mejora responsiva: reducir padding vertical en pantallas pequeñas */
+        @media (max-width: 640px) {
+            .hero-bg { min-height: 34vh; }
+            .hero-bg .hero-content { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+            .hero-bg .hero-content h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -100,7 +121,7 @@
             <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 drop-shadow-md">
                 Objetivo
             </h1>
-            <p class="text-xl md:text-2xl font-light italic opacity-90 mx-auto max-w-2xl leading-relaxed">
+            <p class="text-xl md:text-2xl font-light opacity-90 mx-auto max-w-2xl leading-relaxed">
                 "Herramienta de IA para aumentar el rendimiento en la producción de webinar de venta"
             </p>
         </div>
@@ -196,7 +217,7 @@
             </a>
 
             <!-- Tarjeta 6: Creador de Contenido -->
-            <a href="https://chatbot.getmindpal.com/bildy-creador-de-contenido-yj9" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hid[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-creador-de-contenido-yj9" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hid[...]
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xU3THZsF8rP42g_MGtLdHaXn_-3X9XavzsE1zZOCzoSMz-5Vur8ziD29GGD_PbuQmnFu4lSHVliiIBdN8bAPjEn3RvARNagmYH9UuLBzcxpmGxd_rf28[...]" alt="">
                 </div>
