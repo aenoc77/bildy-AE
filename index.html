@@ -61,12 +61,16 @@
         }
 
         /* overlay semitransparente, suficiente para contraste sin ocultar el fondo */
-        .hero-bg .hero-overlay {
-          position: absolute;
-          inset: 0;
-          background-color: rgba(0,0,0,0.55); /* aumenta si necesitas más contraste */
-          z-index: 0;
-        }
+       .hero-bg .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(127,17,70,0.85) !important; /* magenta #7f1146 con opacidad 0.85 */
+  z-index: 0 !important;
+}
+.hero-bg .hero-content {
+  position: relative;
+  z-index: 9999 !important;
+}
 
         /* contenido del héroe por encima del overlay */
         .hero-bg .hero-content {
