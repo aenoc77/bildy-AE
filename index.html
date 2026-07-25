@@ -18,11 +18,11 @@
             theme: {
                 extend: {
                     colors: {
-                        // Colores extraídos del tema original de Google Sites (QualityBasics Magenta)
+                        // Colores cambiados a tonos azules
                         brand: {
-                            DEFAULT: '#7f1146', // El color principal oscuro
-                            light: '#c12872',   // El acento magenta brillante
-                            hover: '#9e1556'
+                            DEFAULT: '#1e40af', // Azul principal (blue-700)
+                            light: '#60a5fa',   // Acento azul claro (blue-400)
+                            hover: '#1e3a8a'
                         }
                     },
                     fontFamily: {
@@ -52,7 +52,7 @@
           align-items: center;
           justify-content: center;
           overflow: hidden;
-          background-color: #7f1146;
+          background-color: #1e40af;
           background-image: url('logo1.jpg'); /* usa el archivo que subiste */
           background-size: cover;
           background-position: center;
@@ -60,16 +60,15 @@
           background-blend-mode: normal; /* overlay controla la oscuridad */
         }
 
-        /* overlay semitransparente, suficiente para contraste sin ocultar el fondo */
        .hero-bg .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(127,17,70,0.85) !important; /* magenta #7f1146 con opacidad 0.85 */
-  z-index: 0;
-}
-.hero-bg .hero-content {
-  position: relative;
-}
+          position: absolute;
+          inset: 0;
+          background-color: rgba(30,64,175,0.85) !important; /* azul #1e40af con opacidad 0.85 */
+          z-index: 0;
+        }
+        .hero-bg .hero-content {
+          position: relative;
+        }
 
         /* contenido del héroe por encima del overlay */
         .hero-bg .hero-content {
@@ -163,7 +162,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- Tarjeta 1: Creador de Webinars -->
-            <a href="https://chatbot.getmindpal.com/creador-de-webinars-venta-copy-X2DybZ9qXFsR0Csi" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-[...]">
+            <a href="https://chatbot.getmindpal.com/creador-de-webinars-venta-copy-X2DybZ9qXFsR0Csi" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-200 group card-hover overflow-hidden flex flex-col h-full">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="1.png" alt="">
                 </div>
@@ -179,7 +178,7 @@
             </a>
 
             <!-- Tarjeta 2: Creador de Ofertas -->
-            <a href="https://chatbot.getmindpal.com/bildy-creador-de-ofertas-o91" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidde[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-creador-de-ofertas-o91" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-200 group card-hover overflow-hidden flex flex-col h-full">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="2.png" alt="">
                 </div>
@@ -195,7 +194,7 @@
             </a>
 
             <!-- Tarjeta 3: Cartas de Venta -->
-            <a href="https://chatbot.getmindpal.com/bildly-cartas-de-venta-g2n" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidden [...]">
+            <a href="https://chatbot.getmindpal.com/bildly-cartas-de-venta-g2n" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-200 group card-hover overflow-hidden flex flex-col h-full">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="3.png" alt="">
                 </div>
@@ -211,7 +210,7 @@
             </a>
 
             <!-- Tarjeta 4: Asistente de La Máquina del SÍ -->
-            <a href="https://chatbot.getmindpal.com/bildy-de-la-m-quina-del-s-3cg" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidd[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-de-la-m-quina-del-s-3cg" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-200 group card-hover overflow-hidden flex flex-col h-full">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="4.png" alt="">
                 </div>
@@ -227,7 +226,7 @@
             </a>
 
             <!-- Tarjeta 5: Creador de Producto -->
-            <a href="https://chatbot.getmindpal.com/bildy-creador-de-producto-vgn" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hidd[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-creador-de-producto-vgn" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-200 group card-hover overflow-hidden flex flex-col h-full">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="5.png" alt="">
                 </div>
@@ -243,7 +242,7 @@
             </a>
 
             <!-- Tarjeta 6: Creador de Contenido -->
-            <a href="https://chatbot.getmindpal.com/bildy-creador-de-contenido-yj9" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-100 overflow-hid[...]">
+            <a href="https://chatbot.getmindpal.com/bildy-creador-de-contenido-yj9" data-embed="true" rel="noopener noreferrer" referrerpolicy="no-referrer" class="bg-white rounded-xl shadow border border-gray-200 group card-hover overflow-hidden flex flex-col h-full">
                 <div class="h-48 overflow-hidden bg-gray-100 relative">
                     <img src="6.png" alt="">
                 </div>
