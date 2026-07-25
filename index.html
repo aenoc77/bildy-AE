@@ -43,12 +43,38 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
+
+        /* Hero: asegurar altura mínima y control de capas */
         .hero-bg {
+            position: relative; /* para que los absolute internos se posicionen respecto a la sección */
+            min-height: 40vh;   /* evita que el héroe se comprima; ajusta a 320px si prefieres */
+            overflow: hidden;
             background-color: #7f1146;
             background-image: url('https://raw.githubusercontent.com/aenoc77/bildy-AE/main/Logo.jpg');
             background-size: cover;
             background-position: center;
             background-blend-mode: multiply; /* Oscurece la imagen para que el texto sea legible */
+        }
+
+        .hero-bg .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(127,17,70,0.6); /* overlay con opacidad */
+            z-index: 0;
+        }
+
+        .hero-bg .hero-content {
+            position: relative;
+            z-index: 10; /* asegurar que el contenido esté por encima del overlay */
+        }
+
+        /* Regla específica para el logo del header (si la quieres más tarde) */
+        header .site-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            display: block;
+            max-width: none; /* evita que una regla global img { max-width:100% } lo escale */
         }
     </style>
 </head>
@@ -68,9 +94,9 @@
     </header>
 
     <!-- Sección principal / Héroe -->
-    <section class="hero-bg text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div class="absolute inset-0 bg-brand/80"></div> <!-- Capa superpuesta para asegurar el contraste -->
-        <div class="max-w-4xl mx-auto text-center relative z-10">
+    <section class="hero-bg text-white py-24 px-4 sm:px-6 lg:px-8" aria-label="Sección objetivo">
+        <div class="hero-overlay" aria-hidden="true"></div> <!-- Capa superpuesta para asegurar el contraste -->
+        <div class="hero-content max-w-4xl mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 drop-shadow-md">
                 Objetivo
             </h1>
